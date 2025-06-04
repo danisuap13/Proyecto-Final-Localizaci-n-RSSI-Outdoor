@@ -1,11 +1,25 @@
 # Proyecto-Final-Localizaci-n-RSSI-Outdoor
 # ComDigital-Outdoor
 
+Integrantes:
+   Santiago Acosta, Daniel Bueno, Daniel Suárez y Sergio Botía
+
+Profesor: 
+   José de Jesús Rugeles Uribe
+
+![Proyecto Outdoor](./Foto_Grupo_y_Profesor.jpeg)
+   
 ---
 
 # 🛰️ Sistema de Trackeo en Tiempo Real para Carrito de Control Remoto
 
 Este repositorio contiene el código fuente para un sistema distribuido de rastreo de un carrito de control remoto en tiempo real, usando tecnología NRF24L01, sensores inerciales (IMU), pantallas LCD e interconexión mediante módulos Raspberry Pi Pico W y ESP32-CAM.
+
+![Modulo Movil](./carrito.jpg)
+
+![Interfaz Tirlateración](./trilateracion_interfaz.png)
+
+![Pruebas RSSI con el nodo movil en movimiento sin trilateración](./RSSI_Carro_Moviendose.jpeg)
 
 ## 🚗 Descripción del Proyecto
 
@@ -43,6 +57,9 @@ El proyecto permite monitorear en tiempo real la posición y movimiento de un ca
 ## 📸 Diagrama del Sistema
 
 ![Esquemático del sistema](./esquematico_proyecto.jpeg)
+
+![Diagrama de Infraestructura](./Diagrama_infraestructura.png)
+
 
 ## 📌 Estado del Proyecto
 
@@ -147,6 +164,7 @@ Antes de obtener localizaciones precisas, es crucial calibrar el modelo RSSI-dis
 1.  **Coordenadas de Nodos Fijos:** Mida con precisión las coordenadas (x,y) en metros de cada Nodo Fijo en su área de prueba y actualice `NODOS_FIJOS_COORDS` en el script de PC.
 2.  **Frecuencia del AP Móvil:** Determine el canal WiFi en el que opera su AP Móvil (puede escanearlo o intentar configurarlo en el script del AP). Actualice `FREQ_MHZ` en el script de PC con la frecuencia central de ese canal (ej. Canal 6 = 2437 MHz).
 3.  **Medición RSSI a 1 Metro:** Coloque el AP Móvil a 1 metro de un Nodo Fijo de referencia. Registre el promedio de las lecturas RSSI estables.
+![Medición RSSI metro a metro caida exponencial](./RSSI_vs_Distancia_Caida_Exponencial.jpeg)
 4.  **Cálculo de `P_TX_DBM` y `K_FACTOR_DB`:**
     *   Haga una suposición inicial para `P_TX_DBM` (ej. 15 dBm).
     *   Calcule `FSPL(1m) = 20*log10(0.001) + 20*log10(FREQ_MHZ) + 32.44`.
@@ -163,6 +181,8 @@ Antes de obtener localizaciones precisas, es crucial calibrar el modelo RSSI-dis
 5.  Ejecute el script de PC (ej. `python pc_data_receiver_ALL_ENHANCEMENTS_v5_final_documented.py`).
     *   Se abrirá una ventana de Matplotlib mostrando la localización estimada del Nodo Móvil y los datos del IMU.
     *   Un archivo CSV con datos detallados de la sesión se guardará en el mismo directorio que el script.
+
+### 4. Ejecución del Sistema Completo
 
 ## Estructura del Código Principal (Script de PC)
 
@@ -197,6 +217,13 @@ Antes de obtener localizaciones precisas, es crucial calibrar el modelo RSSI-dis
 
 ---
 🔄 Mejoras en optimización de código y visualización en curso
+
+## 🎥 Video Demostrativo del Proyecto
+
+[![Ver video en YouTube](https://img.youtube.com/vi/xisIvzJN7vI/hqdefault.jpg)](https://youtu.be/xisIvzJN7vI)
+
+Haz clic en la imagen para ver el video completo de la demostración del sistema en acción.
+
 
 ## 🤝 Contribuciones
 
